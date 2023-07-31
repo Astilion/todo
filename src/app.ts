@@ -34,39 +34,41 @@ const prepareDOMElements = () => {
 
 const prepareDOMEvents = () => {
 	addBtn.addEventListener("click", addNewTask);
+    ulList.addEventListener('click', checkClick)
 };
 
 const addNewTask = () => {
 	if (todoInput.value !== "") {
 		newTodo = document.createElement("li");
+        newTodo.setAttribute('id', idNumber)
 		newTodo.textContent = todoInput.value;
-		createTools();
+        createTools()
 		ulList.appendChild(newTodo);
 
 		todoInput.value = "";
 		alertInfo.textContent = "";
+        idNumber++
 	} else {
-		alertInfo.textContent = "Brak zadań na liście";
+		alertInfo.textContent = "Wpisz treść zadania!";
 	}
 };
 const createTools = () => {
 	const toolsPanel = document.createElement("div");
 	toolsPanel.classList.add("tools");
+	toolsPanel.innerHTML = `<button class="complete"><i class="ti ti-circle-check-filled"></i>
+    </button>
+    <button class="edit">Edit</button>
+    <button class="delete"><i class="ti ti-circle-x"></i>
+    </button>`;
 	newTodo.appendChild(toolsPanel);
 
-	const completeBtn = document.createElement("button");
-	completeBtn.classList.add("complete");
-	completeBtn.innerHTML = '<i class="ti ti-circle-check-filled"></i>';
-
-	const editBtn = document.createElement("button");
-	editBtn.classList.add("edit");
-	editBtn.textContent = "EDIT";
-
-	const deleteBtn = document.createElement("button");
-	deleteBtn.classList.add("delete");
-	deleteBtn.innerHTML = '<i class="ti ti-circle-x"></i>';
-
-	toolsPanel.append(completeBtn, editBtn, deleteBtn);
 };
+
+const checkClick = e => {
+    if (e.target.matches('.complete')) {
+        e.target.closest('li').classList.toggle('completed')
+        e.target.classList.toggle('completed')
+    } else if ()
+}
 
 document.addEventListener("DOMContentLoaded", main);

@@ -71,6 +71,12 @@ body {
   list-style: none;
   background-color: rgb(245, 245, 245);
 }
+.todo__list .completed {
+  font-size: 12px;
+  font-style: italic;
+  color: rgb(79, 82, 92);
+  text-decoration: line-through;
+}
 .todo__list .tools {
   display: inline-block;
 }
@@ -89,6 +95,9 @@ body {
 }
 .todo__list .tools .edit {
   font-weight: bold;
+}
+.todo__list .tools .ti {
+  pointer-events: none;
 }
 .todo__list .tools .delete {
   color: tomato;

@@ -80,6 +80,12 @@ body {
             list-style: none;
             background-color: $light;
 		}
+        .completed {
+            font-size: 12px;
+            font-style: italic;
+            color: $light-dark;
+            text-decoration: line-through;
+        }
 
         .tools {
             display: inline-block;
@@ -100,6 +106,9 @@ body {
             }
             .edit {
                 font-weight: bold;
+            }
+            .ti {
+                pointer-events: none;
             }
             .delete {
                 color: tomato;
