@@ -31,6 +31,7 @@ const prepareDOMEvents = () => {
     addBtn.addEventListener("click", addNewTask);
     ulList.addEventListener("click", checkClick);
     popupCloseBtn.addEventListener("click", closePopup);
+    popupAddBtn.addEventListener('click', changePopupText);
     todoInput.addEventListener('keyup', enterKeyAdd);
 };
 const addNewTask = () => {
@@ -78,6 +79,15 @@ const editTodo = e => {
 const closePopup = () => {
     popup.style.display = "none";
     popupInfo.textContent = "";
+};
+const changePopupText = (e) => {
+    if (popupInput.value !== '') {
+        editedTodo.firstChild.textContent = popupInput.value;
+        popup.style.display = 'none';
+    }
+    else {
+        popupInfo.textContent = 'Musisz wpisać jakąś treść!';
+    }
 };
 const deleteTodo = e => {
     e.target.closest("li").remove();
