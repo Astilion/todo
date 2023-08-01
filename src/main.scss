@@ -74,106 +74,106 @@ body {
 			justify-content: space-between;
 			align-items: center;
 			margin: 15px;
-            padding-left: 20px;
-            list-style: none;
-            text-align: left;
-            list-style: none;
-            background-color: $light;
+			padding-left: 20px;
+			list-style: none;
+			text-align: left;
+			list-style: none;
+			background-color: $light;
 		}
-        .completed {
-            font-size: 12px;
-            font-style: italic;
-            color: $light-dark;
-            text-decoration: line-through;
-        }
+		.completed {
+			font-size: 12px;
+			font-style: italic;
+			color: $light-dark;
+			text-decoration: line-through;
+		}
 
-        .tools {
-            display: inline-block;
+		.tools {
+			display: inline-block;
 
-            button {
-                padding: 15px 10px;
-                border: none;
-                background-color: transparent;
-                cursor: pointer;
-                transition: background-color .3s;
+			button {
+				padding: 15px 10px;
+				border: none;
+				background-color: transparent;
+				cursor: pointer;
+				transition: background-color 0.3s;
 
-                &:hover {
-                    background-color: #ddd;
-                }
-            }
-            .complete {
-                color: $light-green;
-            }
-            .edit {
-                font-weight: bold;
-            }
-            .ti {
-                pointer-events: none;
-            }
-            .delete {
-                color: tomato;
-            }
-            .completed {
-                font-size: 12px;
-                font-style: italic;
-                color: $light-dark;
-                text-decoration: line-through;
-            }
-        }
+				&:hover {
+					background-color: #ddd;
+				}
+			}
+			.complete {
+				color: $light-green;
+			}
+			.edit {
+				font-weight: bold;
+			}
+			.ti {
+				pointer-events: none;
+			}
+			.delete {
+				color: tomato;
+			}
+			.completed {
+				font-size: 12px;
+				font-style: italic;
+				color: $light-dark;
+				text-decoration: line-through;
+			}
+		}
 	}
 }
 
 .popup {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 800px;
-    color: $light;
-    background-color: $light-dark;
-    border-radius: 8px;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: fixed;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 800px;
+	color: $light;
+	background-color: $light-dark;
+	border-radius: 8px;
 
-    h3 {
-        padding: 20px;
-    }
-    &__info {
-        margin-bottom: 20px;
-        color:$light;
-    }
-    &__body {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        width: 90%;
-        padding: 10px;
-    }
-    &__input {
-        width: 100%;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        color: $light-dark;
-        background-color: $light;
-    }
+	h3 {
+		padding: 20px;
+	}
+	&__info {
+		margin-bottom: 20px;
+		color: $light;
+	}
+	&__body {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		width: 90%;
+		padding: 10px;
+	}
+	&__input {
+		width: 100%;
+		padding: 10px 20px;
+		border: none;
+		border-radius: 5px;
+		color: $light-dark;
+		background-color: $light;
+	}
 
-    &__btn {
-        display: inline-block;
-        width: 30%;
-        padding: 10px 22px;
-        margin: 20px;
-        border: none;
-        border-radius: 8px;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: background-color .3s,color .3s;
+	&__btn {
+		display: inline-block;
+		width: 30%;
+		padding: 10px 22px;
+		margin: 20px;
+		border: none;
+		border-radius: 8px;
+		text-transform: uppercase;
+		cursor: pointer;
+		transition: background-color 0.3s, color 0.3s;
 
-        &:hover {
-            color:#fff;
-            background-color: $light-green;
-        }
-    }
+		&:hover {
+			color: #fff;
+			background-color: $light-green;
+		}
+	}
 }

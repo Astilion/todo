@@ -19,7 +19,6 @@ const main = () => {
 };
 
 const prepareDOMElements = () => {
-	// pobieramy wszystkie element
 	todoInput = document.querySelector(".todo__input");
 	alertInfo = document.querySelector(".alert-info");
 	addBtn = document.querySelector(".add-btn");
@@ -28,26 +27,28 @@ const prepareDOMElements = () => {
 	popupInfo = document.querySelector(".popup__info");
 	allTasks = document.getElementsByTagName("li");
 	popupInput = document.querySelector(".popup__input");
-	popupAddBtn = document.querySelector(".accept");
-	popupCloseBtn = document.querySelector(".cancel");
+	popupAddBtn = document.querySelector(".popup__btn--accept");
+	popupCloseBtn = document.querySelector(".popup__btn--cancel");
 };
 
 const prepareDOMEvents = () => {
 	addBtn.addEventListener("click", addNewTask);
-    ulList.addEventListener('click', checkClick)
+	ulList.addEventListener("click", checkClick);
+	popupCloseBtn.addEventListener("click", closePopup);
+	todoInput.addEventListener('keyup', enterKeyAdd)
 };
 
 const addNewTask = () => {
 	if (todoInput.value !== "") {
 		newTodo = document.createElement("li");
-        newTodo.setAttribute('id', idNumber)
+		newTodo.setAttribute("id", idNumber.toString());
 		newTodo.textContent = todoInput.value;
-        createTools()
+		createTools();
 		ulList.appendChild(newTodo);
 
 		todoInput.value = "";
 		alertInfo.textContent = "";
-        idNumber++
+		idNumber++;
 	} else {
 		alertInfo.textContent = "Wpisz treść zadania!";
 	}
@@ -61,14 +62,41 @@ const createTools = () => {
     <button class="delete"><i class="ti ti-circle-x"></i>
     </button>`;
 	newTodo.appendChild(toolsPanel);
-
 };
 
 const checkClick = e => {
-    if (e.target.matches('.complete')) {
-        e.target.closest('li').classList.toggle('completed')
-        e.target.classList.toggle('completed')
-    } else if ()
+	if (e.target.matches(".complete")) {
+		e.target.closest("li").classList.toggle("completed");
+		e.target.classList.toggle("completed");
+	} else if (e.target.matches(".edit")) {
+		editTodo(e);
+	} else if (e.target.matches(".delete")) {
+		deleteTodo(e);
+	}
+};
+
+const editTodo = e => {
+	editedTodo = e.target.closest("li");
+	popupInput.value = editedTodo.firstChild.textContent;
+	popup.style.display = "flex";
+};
+const closePopup = () => {
+	popup.style.display = "none";
+	popupInfo.textContent = "";
+};
+
+const deleteTodo = e => {
+	e.target.closest("li").remove();
+
+	if(allTasks.length === 0) {
+		alertInfo.textContent = 'Brak zadań na liście'
+	}
+};
+
+const enterKeyAdd = (e) => {
+	if (e.key === 'Enter') { 
+		addNewTask()
+	}
 }
 
 document.addEventListener("DOMContentLoaded", main);
